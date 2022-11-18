@@ -23,3 +23,13 @@ class Curso(models.Model):
 
     def __str__(self):
         return self.descricao
+
+class Matricula(models.Model):
+    PERIODO = (
+        ('M', 'Matutino'),
+        ('V', 'Vespertino'),
+        ('N', 'Noturno'),
+    )
+    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE) #foreignKey serve pra interligar com dados de outro objeto.
+    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    periodo = models.CharField(max_length=1, choices=PERIODO, blank=False, null=False, default='M')
