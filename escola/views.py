@@ -43,4 +43,3 @@ class ListaAlunosMatriculados(generics.ListAPIView):
     serializer_class = ListaAlunosMatriculadosSerializer
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated]
-
